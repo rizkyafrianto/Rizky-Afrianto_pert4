@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form with Dialog</title>
+   <style>
+      body {
+         height: 100vh;
+      }
+
+      input,
+      button {
+         margin-top: 10px;
+      }
+   </style>
+</head>
+
+<body>
+   <form onsubmit="return handleSubmit()">
+      <div>
+         <label for="nameInput">Nama:</label>
+         <input type="text" id="nameInput" placeholder="Masukan nama...">
+      </div>
+      <div>
+         <label for="emailInput">Email:</label>
+         <input type="email" id="emailInput" placeholder="masukan email">
+      </div>
+      <button type="submit">Submit</button>
+   </form>
+
+   <script>
+      let purpose = prompt("apa tujuan kamu kesini?", "");
+      document.write("<p>Tujuan saya adalah " + purpose + "</p>");
+
+      function handleSubmit() {
+         var name = document.getElementById("nameInput").value;
+         var email = document.getElementById("emailInput").value;
+
+         if (!name || !email) {
+            alert("Harap isi semua field!");
+            return false;
+         }
+
+         var result = confirm("Yakin ingin mengirim form ini?");
+         if (result) {
+            alert("Form berhasil dikirim!");
+         } else {
+            alert("Pengiriman form gagal!");
+            return false;
+         }
+      }
+   </script>
+</body>
+
+</html>

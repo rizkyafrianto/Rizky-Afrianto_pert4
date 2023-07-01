@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+      }
+
+      #box {
+         width: 200px;
+         height: 200px;
+         background-color: red;
+         color: white;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         cursor: pointer;
+      }
+
+      #message {
+         margin-top: 20px;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="box" onclick="changeColor()" ondblclick="showMessage()" onmouseover="changeText('Mouse over!')"
+      onmouseout="changeText('Mouse out!')">Click Me!</div>
+   <div id="message"></div>
+
+   <form onsubmit="submitForm(event)">
+      <input type="text" id="nameInput" placeholder="Nama">
+      <button type="submit">Submit</button>
+   </form>
+
+   <script>
+      window.onload = function () {
+         alert("Halaman telah dimuat!");
+      };
+
+      function changeColor() {
+         var box = document.getElementById("box");
+         box.style.backgroundColor = "blue";
+      }
+
+      function showMessage() {
+         var message = document.getElementById("message");
+         message.textContent = "Double-clicked!";
+      }
+
+      function changeText(text) {
+         var message = document.getElementById("message");
+         message.textContent = text;
+      }
+
+      function submitForm(event) {
+         event.preventDefault();
+         var name = document.getElementById("nameInput").value;
+         alert("Form submitted!\nNama: " + name);
+      }
+   </script>
+</body>
+
+</html>
